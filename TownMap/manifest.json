@@ -1,0 +1,9 @@
+{
+  "name": "Town_Map",
+  "version_number": "1.0.0",
+  "website_url": "https://github.com/binbinmods/TownMap",
+  "description": "A mod that lets to go to the Map from town and back to Town from the Map",
+  "dependencies": [
+    "BepInEx-BepInExPack_AcrossTheObelisk-5.4.23"
+  ]
+}
