@@ -11,7 +11,7 @@ This has not been tested in multiplayer yet, so let me know if there are any iss
 | Config          | Default | Explanation                                                                                 |
 | :-------------- | :-----: | :------------------------------------------------------------------------------------------ |
 | EnableMod       |  true   | Enables the mod. Restart the game after changing this.                                      |
-| EnableDebugging |  true   | Enables debugging for if errors occur. Please enable this before submitting a LogOutput.log |
+| EnableDebugging |  false   | Enables debugging for if errors occur. Please enable this before submitting a LogOutput.log |
 | IconHorizontalShift | 0 | Shifts the Town Map Icons. More positive is more to the right, more negative is more to the left. A value of 100 will shift the UI one Icon to the right|
 
 ## Installation (manual)

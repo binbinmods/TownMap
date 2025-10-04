@@ -51,7 +51,9 @@ namespace TownMap
         public static ConfigEntry<int> IconHorizontalShift { get; set; }
         // public static ConfigEntry<bool> EnablePerkChangeWhenever { get; set; }
 
-
+        public static string PluginName;
+        public static string PluginVersion;
+        public static string PluginGUID;
         internal static int ModDate = int.Parse(DateTime.Today.ToString("yyyyMMdd"));
         private readonly Harmony harmony = new(PluginInfo.PLUGIN_GUID);
         internal static ManualLogSource Log;
@@ -72,11 +74,20 @@ namespace TownMap
             IconHorizontalShift = Config.Bind(new ConfigDefinition(modName, "IconHorizontalShift"), 0, new ConfigDescription("Shifts the Town Map Icons. More positive is more to the right, more negative is more to the left. A value of 100 will shift the UI one \"Icon\" to the right."));
             // EnablePerkChangeInTowns = Config.Bind(new ConfigDefinition(modName, "EnablePerkChangeInTowns"), true, new ConfigDescription("Enables you to change perks in any town."));
             // DevMode = Config.Bind(new ConfigDefinition("DespairMode", "DevMode"), false, new ConfigDescription("Enables all of the things for testing."));
-
+            PluginName = PluginInfo.PLUGIN_NAME;
+            PluginVersion = PluginInfo.PLUGIN_VERSION;
+            PluginGUID = PluginInfo.PLUGIN_GUID;
             // apply patches, this functionally runs all the code for Harmony, running your mod
             if (EnableMod.Value)
             {
-                EssentialsRegister();
+                if (EssentialsCompatibility.Enabled)
+                {
+                    EssentialsCompatibility.EssentialsRegister();
+                }
+                else
+                {
+                    LogDebug("Essentials is not installed. Mod will load normally, but Essentials features are unavaiable.");
+                }
                 harmony.PatchAll();
             }
         }
@@ -100,27 +111,6 @@ namespace TownMap
             Log.LogError(debugBase + msg);
         }
 
-        [MethodImpl(MethodImplOptions.NoInlining | MethodImplOptions.NoOptimization)]
-        internal static void EssentialsRegister()
-        {
-            // Register with Obeliskial Essentials
-            EssentialsInstalled = Chainloader.PluginInfos.ContainsKey("com.stiffmeds.obeliskialessentials");
-            if (EssentialsInstalled)
-            {
-                RegisterMod(
-                    _name: PluginInfo.PLUGIN_NAME,
-                    _author: "binbin",
-                    _description: "Item Unlocker",
-                    _version: PluginInfo.PLUGIN_VERSION,
-                    _date: ModDate,
-                    _link: @"https://github.com/binbinmods/ItemUnlocker"
-                );
-                LogInfo($"{PluginInfo.PLUGIN_GUID} {PluginInfo.PLUGIN_VERSION} has loaded with Essentials!");
-            }
-            else
-            {
-                LogInfo($"{PluginInfo.PLUGIN_GUID} {PluginInfo.PLUGIN_VERSION} has loaded. Obeliskial Essentials is not installed. Essentials features will not be available, but mod will still load.");
-            }
-        }
+
     }
 }
