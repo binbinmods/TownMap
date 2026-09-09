@@ -5,7 +5,6 @@ using HarmonyLib;
 // using static Obeliskial_Essentials.Essentials;
 using System;
 using static TownMap.Plugin;
-using static TownMap.CustomFunctions;
 using static TownMap.TownMapFunctions;
 using System.Collections.Generic;
 using static Functions;

@@ -4,7 +4,7 @@
     <TargetFramework>netstandard2.1</TargetFramework>
     <AssemblyName>com.binbin.TownMap</AssemblyName>
     <Product>TownMap</Product>
-    <Version>1.0.1</Version>
+    <Version>1.1.0</Version>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <LangVersion>latest</LangVersion>
     <RestoreAdditionalProjectSources>
@@ -47,9 +47,9 @@
     <Reference Include="com.stiffmeds.obeliskialessentials">
       <HintPath>../../!libs/com.stiffmeds.obeliskialessentials.dll</HintPath>
     </Reference>
-    <Reference Include="com.stiffmeds.obeliskialcontent">
+    <!-- <Reference Include="com.stiffmeds.obeliskialcontent">
       <HintPath>../../!libs/com.stiffmeds.obeliskialcontent.dll</HintPath>
-    </Reference>
+    </Reference> -->
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">

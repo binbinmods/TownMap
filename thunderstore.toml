@@ -4,7 +4,7 @@ schemaVersion = "1.0.0"
 [package]
 namespace = "Binbin"
 name = "Town_Map"
-versionNumber = "1.0.0"
+versionNumber = "1.1.0"
 description = "A mod that lets to go to the Map from town and back to Town from the Map"
 websiteUrl = "https://github.com/binbinmods/TownMap"
 containsNsfwContent = false
